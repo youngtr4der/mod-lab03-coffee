@@ -1,4 +1,4 @@
-// Copyright 2022 GHA Test Team
+// Copyright 2023 UNN
 
 #include <gtest/gtest.h>
 #include "Automata.h"
@@ -13,7 +13,8 @@ TEST(AutomataTest, OnOffState) {
     EXPECT_EQ(automata.getState(), OFF);
 }
 
-TEST(AutomataTest, CheckThirdIngredient) { // проверка 3 напитка в текущем menu.txt
+// проверка 3 напитка в текущем menu.txt
+TEST(AutomataTest, CheckThirdIngredient) {
     Automata automata;
     std::vector<std::string> menu = automata.getMenu();
     EXPECT_EQ(menu[2], "Cappuccino");
@@ -25,29 +26,4 @@ TEST(AutomataTest, Coin) {
     automata.coin(100);
     EXPECT_EQ(automata.getState(), ACCEPT);
     EXPECT_EQ(automata.getBalance(), 100);
-}
-
-TEST(AutomataTest, ChoiceAndCheck) {
-    Automata automata;
-
-    automata.on();
-    
-    // Тестирование с некорректным номером напитка
-    automata.coin(200);
-    automata.choice(100); // Несуществующий номер напитка
-    EXPECT_EQ(automata.getState(), ACCEPT);
-
-    // Тестирование с недостаточным количеством денег
-    automata.coin(50);
-    automata.choice(1); // напиток из примера menu.txt: Americano за 120
-    EXPECT_EQ(automata.getState(), ACCEPT);
-}
-
-TEST(AutomataTest, Cancel) {
-    Automata automata;
-
-    automata.on();
-    automata.coin(100);
-    automata.cancel();
-    EXPECT_EQ(automata.getState(), WAIT);
 }

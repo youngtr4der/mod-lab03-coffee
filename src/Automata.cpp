@@ -1,3 +1,4 @@
+// Copyright 2023 UNN
 #include "Automata.h"
 
 Automata::Automata()
