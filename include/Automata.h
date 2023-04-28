@@ -47,3 +47,4 @@ public:
 
     void loadMenuFromFile(const std::string &filename);
 };
+#endif  // INCLUDE_AUTOMATA_H_
