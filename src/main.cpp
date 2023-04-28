@@ -11,6 +11,5 @@ int main() {
     automat1.check();
     automat1.cook();
     automat1.finish();
-    
     return 0;
 }
