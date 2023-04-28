@@ -16,8 +16,8 @@ enum STATES {
 };
 
 class Automata {
-private:
 
+private:
     int cash;
     std::vector<std::string> menu;
     std::vector<int> prices;
@@ -25,7 +25,6 @@ private:
     int selectedDrink;
 
 public:
-
     Automata();
     void on();
     void off();

@@ -31,7 +31,8 @@ void Automata::coin(int p) {
 
 void Automata::check() {
     if (state == CHECK) {
-        if (selectedDrink >= 0 && selectedDrink < static_cast<int>(prices.size())
+        if (selectedDrink >= 0
+        && selectedDrink < static_cast<int>(prices.size())
         && cash >= prices[selectedDrink]) {
             state = COOK;
             cook();
@@ -47,7 +48,7 @@ void Automata::choice(int n) {
         selectedDrink = n;
         state = CHECK;
         check();
-    }    
+    }
 }
 
 void Automata::cancel() {
