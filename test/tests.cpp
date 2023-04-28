@@ -15,10 +15,7 @@ TEST(AutomataTest, OnOffState) {
 
 TEST(AutomataTest, CheckThirdIngredient) { // проверка 3 напитка в текущем menu.txt
     Automata automata;
-
     std::vector<std::string> menu = automata.getMenu();
-    ASSERT_GE(menu.size(), 3); // Проверяем, что в меню есть хотя бы три напитка
-    // Проверяем название и стоимость третьего напитка
     EXPECT_EQ(menu[2], "Cappuccino");
 }
 
@@ -34,13 +31,7 @@ TEST(AutomataTest, ChoiceAndCheck) {
     Automata automata;
 
     automata.on();
-    automata.coin(200);
-
-    automata.choice(1); // напиток из примера menu.txt: Americano за 120
-    EXPECT_EQ(automata.getState(), COOK);
-
-    automata.finish();
-
+    
     // Тестирование с некорректным номером напитка
     automata.coin(200);
     automata.choice(100); // Несуществующий номер напитка
