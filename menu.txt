@@ -1,0 +1,6 @@
+Espresso 100
+Americano 120
+Cappuccino 150
+Latte 160
+Hot_Chocolate 140
+Tea 110

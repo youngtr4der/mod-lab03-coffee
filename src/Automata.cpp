@@ -1,29 +1,25 @@
 // Copyright 2023 UNN
 #include "Automata.h"
 
-Automata::Automata()
-{
+Automata::Automata() {
     cash = 0;
     state = OFF;
     loadMenuFromFile("menu.txt");
 }
 
-void Automata::on()
-{
+void Automata::on() {
     if (state == OFF) {
         state = WAIT;
     }
 }
 
-void Automata::off()
-{
+void Automata::off() {
     if (state == WAIT) {
         state = OFF;
     }
 }
 
-void Automata::coin(int p)
-{
+void Automata::coin(int p) {
     if (state == WAIT) {
         cash += p;
         state = ACCEPT;
@@ -45,8 +41,7 @@ void Automata::check() {
     }
 }
 
-void Automata::choice(int n)
-{
+void Automata::choice(int n) {
     if (state == ACCEPT) {
         selectedDrink = n;
         state = CHECK;
@@ -76,8 +71,7 @@ void Automata::finish() {
     }
 }
 
-void Automata::loadMenuFromFile(const std::string &filename)
-{
+void Automata::loadMenuFromFile(const std::string &filename) {
     std::ifstream file(filename);
     if (file.is_open()) {
         std::string drinkName;
